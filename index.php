@@ -2,25 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QuickPOS - Hero Section</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPOS - The Last POS System You'll Ever Need</title>
+    <meta name="description" content="QuickPOS is a modern, clean, and professional Point of Sale system designed to streamline your business operations.">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">The Last POS System <br>You'll <span class="text-gradient">Ever Need</span></h1>
-                <p class="hero-subtitle">Streamline your operations, boost your sales, and manage inventory seamlessly with our modern, intuitive interface designed for businesses of all sizes.</p>
-                <div class="hero-actions">
-                    <a href="#signup" class="btn btn-primary">Get Started for Free</a>
-                </div>
-            </div>
-            <div class="hero-image-wrapper">
-                <img src="images/mockup.png" alt="QuickPOS Dashboard Mockup" class="hero-image">
-            </div>
+    <!-- Background Elements -->
+    <div class="bg-glow bg-glow-blue"></div>
+    <div class="bg-glow bg-glow-purple"></div>
+
+    <?php include 'includes/header.php'; ?>
+
+    <!-- Placeholder for remaining epics -->
+    <main class="hero-placeholder" id="home" style="min-height: 100vh; padding-top: 100px;">
+        <div class="container">
+            <h1 style="font-family: 'Outfit', sans-serif; font-size: 3rem; margin-top: 2rem;">Welcome to QuickPOS</h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin-top: 1rem;">This is the Navigation branch. The beautiful header is built and fixed at the top. Scroll down to see the glassmorphism effect.</p>
         </div>
     </main>
+
+    <section id="features" style="height: 100vh; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem;">Features Section Placeholder</h2>
+    </section>
+    
+    <section id="pricing" style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem;">Pricing Section Placeholder</h2>
+    </section>
+    
+    <section id="contact" style="height: 100vh; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center;">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem;">Contact Section Placeholder</h2>
+    </section>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
 </body>
 </html>
