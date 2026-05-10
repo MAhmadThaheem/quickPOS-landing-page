@@ -49,4 +49,19 @@ class ContactFormTest extends TestCase
             "[POS-19] Must show required fields error"
         );
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-20: Missing subject field should fail
+    // ─────────────────────────────────────────────────────
+    public function testMissingSubjectFails(): void
+    {
+        $result = $this->validateForm([
+            'name'    => 'Ahmad Ali',
+            'email'   => 'ahmad@example.com',
+            'subject' => '',
+            'message' => 'Hello QuickPOS!',
+        ]);
+
+        $this->assertFalse($result['success'], "[POS-20] Missing subject must fail");
+    }
 }
