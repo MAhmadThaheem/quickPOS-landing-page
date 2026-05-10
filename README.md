@@ -27,6 +27,10 @@ This repository focuses strictly on the front-end landing page, which features:
 
 To run this landing page locally, you need a local web server with PHP support (such as MAMP, XAMPP, or WAMP).
 
+### Local Server Configuration (MAMP)
+- **Apache Port:** `8888`
+- **MySQL Port:** `3308`
+
 1. Clone the repository into your web server's root directory (e.g., `htdocs` for MAMP/XAMPP):
    ```bash
    git clone https://github.com/MAhmadThaheem/quickPOS-landing-page.git
