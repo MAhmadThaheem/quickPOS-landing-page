@@ -1,3 +1,5 @@
+![CI](https://github.com/YOUR_USERNAME/quickPOS-landing-page/actions/workflows/ci.yml/badge.svg)
+
 # QuickPOS Landing Page
 
 Welcome to the **QuickPOS** landing page project! This is an interactive, visually stunning marketing page built with a modern glassmorphism aesthetic to showcase the ultimate Point of Sale system.
