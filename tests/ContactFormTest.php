@@ -64,4 +64,32 @@ class ContactFormTest extends TestCase
 
         $this->assertFalse($result['success'], "[POS-20] Missing subject must fail");
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-21: Invalid email formats — data-driven
+    // ─────────────────────────────────────────────────────
+    public function testInvalidEmailFails(): void
+    {
+        $invalidEmails = [
+            'notanemail',
+            'missing@',
+            '@nodomain.com',
+            'double@@email.com',
+            'spaces in@email.com',
+        ];
+
+        foreach ($invalidEmails as $email) {
+            $result = $this->validateForm([
+                'name'    => 'Ahmad Ali',
+                'email'   => $email,
+                'subject' => 'Test Subject',
+                'message' => 'Test message.',
+            ]);
+
+            $this->assertFalse(
+                $result['success'],
+                "[POS-21] '$email' should fail validation"
+            );
+        }
+    }
 }
