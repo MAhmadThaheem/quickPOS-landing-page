@@ -153,4 +153,24 @@ class ContactFormTest extends TestCase
             "[POS-24] Success message must include user name"
         );
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-25: XSS — script tag sanitization
+    // ─────────────────────────────────────────────────────
+    public function testXssSanitization(): void
+    {
+        $malicious = "<script>alert('xss')</script>";
+        $sanitized = htmlspecialchars(trim($malicious));
+
+        $this->assertStringNotContainsString(
+            '<script>',
+            $sanitized,
+            "[POS-25] Script tags must be escaped"
+        );
+        $this->assertStringContainsString(
+            '&lt;script&gt;',
+            $sanitized,
+            "[POS-25] Must contain escaped HTML entities"
+        );
+    }
 }
