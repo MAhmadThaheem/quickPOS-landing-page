@@ -118,4 +118,19 @@ class ContactFormTest extends TestCase
             );
         }
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-23: Missing message field should fail
+    // ─────────────────────────────────────────────────────
+    public function testMissingMessageFails(): void
+    {
+        $result = $this->validateForm([
+            'name'    => 'Ahmad Ali',
+            'email'   => 'ahmad@example.com',
+            'subject' => 'Demo Subject',
+            'message' => '',
+        ]);
+
+        $this->assertFalse($result['success'], "[POS-23] Empty message must fail");
+    }
 }
