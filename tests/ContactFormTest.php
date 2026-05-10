@@ -173,4 +173,22 @@ class ContactFormTest extends TestCase
             "[POS-25] Must contain escaped HTML entities"
         );
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-26: Page load availability test
+    // ─────────────────────────────────────────────────────
+    public function testIndexPageFileExists(): void
+    {
+        $indexPath = __DIR__ . '/../index.php';
+
+        $this->assertFileExists(
+            $indexPath,
+            "[POS-26] index.php must exist for page load"
+        );
+        $this->assertGreaterThan(
+            0,
+            filesize($indexPath),
+            "[POS-26] index.php must not be empty"
+        );
+    }
 }
