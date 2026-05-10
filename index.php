@@ -239,6 +239,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_contact'])) {
         </div>
     </section>
 
+    <?php include 'includes/footer.php'; ?>
+
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
