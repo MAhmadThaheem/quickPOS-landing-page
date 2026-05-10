@@ -133,4 +133,24 @@ class ContactFormTest extends TestCase
 
         $this->assertFalse($result['success'], "[POS-23] Empty message must fail");
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-24: All fields valid — full success case
+    // ─────────────────────────────────────────────────────
+    public function testAllFieldsValidSuccess(): void
+    {
+        $result = $this->validateForm([
+            'name'    => 'Ahmad Ali',
+            'email'   => 'ahmad@example.com',
+            'subject' => 'Interested in QuickPOS',
+            'message' => 'I would like to know more.',
+        ]);
+
+        $this->assertTrue($result['success'], "[POS-24] Valid form must succeed");
+        $this->assertStringContainsString(
+            'Ahmad Ali',
+            $result['message'],
+            "[POS-24] Success message must include user name"
+        );
+    }
 }
