@@ -92,4 +92,30 @@ class ContactFormTest extends TestCase
             );
         }
     }
+
+    // ─────────────────────────────────────────────────────
+    // POS-22: Valid email formats — data-driven
+    // ─────────────────────────────────────────────────────
+    public function testValidEmailPasses(): void
+    {
+        $validEmails = [
+            'ahmad@example.com',
+            'user.name@domain.org',
+            'test123@mail.co.uk',
+        ];
+
+        foreach ($validEmails as $email) {
+            $result = $this->validateForm([
+                'name'    => 'Ahmad Ali',
+                'email'   => $email,
+                'subject' => 'Test Subject',
+                'message' => 'Test message.',
+            ]);
+
+            $this->assertTrue(
+                $result['success'],
+                "[POS-22] '$email' should pass validation"
+            );
+        }
+    }
 }
