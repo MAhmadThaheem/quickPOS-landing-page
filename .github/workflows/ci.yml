@@ -14,7 +14,7 @@ jobs:
 
   # ══════════════════════════════════════════
   # STAGE 10 — Jira Commit Message Validation
-  # ══════════════════════════════════════════
+  # ══════════════════════════════════════════!~
   commit-validation:
     name: "Stage 10 – Jira Commit Validation"
     runs-on: ubuntu-latest
