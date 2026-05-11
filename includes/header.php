@@ -10,7 +10,7 @@
                     <circle cx="12" cy="10" r="2" fill="currentColor"/>
                 </svg>
             </span>
-            Quick<span class="logo-highlight">POS-Shahzad</span>
+            Quick<span class="logo-highlight">POS-ALI</span>
         </a>
 
         <!-- Mobile Menu Toggle -->
