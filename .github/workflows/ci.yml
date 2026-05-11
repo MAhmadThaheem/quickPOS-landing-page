@@ -27,7 +27,12 @@ jobs:
       - name: Check Commit Messages for [POS-XXX]
         run: |
           echo "Validating commit messages..."
-          COMMITS=$(git log origin/main..HEAD --pretty=format:"%s" 2>/dev/null || true)
+          # For push events, check only new commits
+          if [ "${{ github.event_name }}" == "push" ]; then
+            COMMITS=$(git log ${{ github.event.before }}..${{ github.event.after }} --pretty=format:"%s" 2>/dev/null || true)
+          else
+            COMMITS=$(git log origin/main..HEAD --pretty=format:"%s" 2>/dev/null || true)
+          fi
 
           if [ -z "$COMMITS" ]; then
             echo "No new commits found. Skipping."
@@ -139,37 +144,4 @@ jobs:
           echo "════════════════════════════════════"
           echo "🚀 QuickPOS CI Pipeline SUCCESS"
           echo "PR is cleared for review and merge."
-
-  # ══════════════════════════════════════════════════════
-  # BONUS — Stage 12: Automated Deployment (Production)
-  # ══════════════════════════════════════════════════════
-  deploy:
-    name: "Stage 12 – Automated Deployment"
-    runs-on: ubuntu-latest
-    needs: pipeline-complete
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    steps:
-      - name: "Stage 1 – Checkout Code"
-        uses: actions/checkout@v4
-
-      - name: "Stage 12 – FTP Deploy to Production"
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          # Exclude non-production files
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/tests/**
-            **/vendor/**
-            composer.json
-            composer.lock
-            README.md
-            implementation_plan.md
-            task.md
-            walkthrough.md
+          echo "Vercel will now handle the live deployment."
