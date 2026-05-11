@@ -1,0 +1,8 @@
+/vendor/
+.composer/
+composer.phar
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+test-report.xml

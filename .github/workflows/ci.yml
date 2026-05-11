@@ -108,7 +108,7 @@ jobs:
 
       - name: "Stage 4 – Run PHPUnit Tests"
         run: |
-          ./vendor/bin/phpunit tests/ \
+          php vendor/bin/phpunit tests/ \
             --testdox \
             --log-junit test-report.xml
 
