@@ -1,12 +1,26 @@
 {
-  "functions": {
-    "index.php": {
-      "runtime": "vercel-php@0.7.2"
+  "builds": [
+    {
+      "src": "index.php",
+      "use": "vercel-php@0.7.2"
     },
-    "process_contact.php": {
-      "runtime": "vercel-php@0.7.2"
+    {
+      "src": "process_contact.php",
+      "use": "vercel-php@0.7.2"
+    },
+    {
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "images/**",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
