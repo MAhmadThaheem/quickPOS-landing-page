@@ -1,4 +1,4 @@
-![CI](https://github.com/YOUR_USERNAME/quickPOS-landing-page/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/MAhmadThaheem/quickPOS-landing-page/actions/workflows/ci.yml/badge.svg)
 
 # QuickPOS Landing Page
 
@@ -54,6 +54,14 @@ To run this landing page locally, you need a local web server with PHP support (
 
 ## 📝 Contributors
 Developed as part of the SPM Project.
+
+## 🔄 CI/CD Workflow
+
+This project implements a professional DevOps pipeline using GitHub Actions:
+
+1.  **Stage: Jira Validation:** Every commit must start with a Jira ID (e.g., `[POS-101]`).
+2.  **Stage: Quality Gate:** Parallel jobs run PHPUnit tests and PHPCS code quality checks.
+3.  **Stage: Automated Deployment:** On merge to `main`, the site is automatically deployed to production via FTP.
 
 ---
 *Elevate your retail business with QuickPOS today.*
